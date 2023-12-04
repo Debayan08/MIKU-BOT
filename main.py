@@ -9,7 +9,7 @@ token = ''
 admin = 1
 
 bot = Client('Bot', api_id=api_id, api_hash=api_hash, bot_token=token, plugins=dict(root='plugins', include=[
-    'search', 'bored', 'help' ,'waifu','anime', 'jokes' ,'rps', 'qr.qr', 'fact', 'aki' , 'owner'
+    'search', 'bored', 'help' ,'waifu','anime', 'jokes' ,'rps', 'qr.qr', 'fact', 'aki' , 'owner', 'captcha'
 ]))
 
       
