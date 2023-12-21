@@ -7,6 +7,7 @@ from pyrogram.types import CallbackQuery
 
 event = {"-1152935968": "user", "event": "on"}
 
+
 @Client.on_callback_query(filters.regex('event_(.*)'))
 async def switch (client ,callback_query: CallbackQuery):
     chat_id = callback_query.message.chat.id 
@@ -27,6 +28,7 @@ async def switch (client ,callback_query: CallbackQuery):
          event["event"] = "off"
          await client.answer_callback_query(callback_query_id= query_id_,text=event_off, show_alert=True)
 
+
 @Client.on_message(filters.command("event"))
 async def eve (client, message):
     ms_g = 'Do you want to turn the event 🎐'
@@ -38,13 +40,7 @@ async def eve (client, message):
     await message.reply(text = ms_g , reply_markup = keybord)
 
 #https://docs.pyrogram.org/api/filters#module-pyrogram.filters
-@Client.on_message(filters.left_chat_member)
-async def new_member(client: Client, message: Message):
-     user_name = message.from_user.username
-     chat_titel = message.chat.title
-     await message.reply(f'@{user_name} left the {chat_titel} 🥲')
 
-     
 @Client.on_message(filters.new_chat_members)
 async def new_member(client: Client, message: Message):
      user_name = message.from_user.username
@@ -53,7 +49,8 @@ async def new_member(client: Client, message: Message):
     [
         [InlineKeyboardButton("Help-list", callback_data="event_help")]
     ])
-     await message.reply(f'Welcome @{user_name} to {chat_titel} 🎉', reply_markup = btn)
+     for member in message.new_chat_members:
+      await message.reply(f'Welcome @{member.username} to {chat_titel} 🎉', reply_markup = btn)
 
 
 
