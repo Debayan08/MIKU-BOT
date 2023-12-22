@@ -10,7 +10,7 @@ admin =
 
 
 bot = Client('Bot', api_id=api_id, api_hash=api_hash, bot_token=token, plugins=dict(root='plugins', include=[
-  'bored', 'help' ,'waifu','anime', 'jokes' ,'rps', 'qr.qr', 'fact', 'owner','event','ytdl','chat_info'
+  'bored', 'help' ,'waifu','anime', 'jokes' ,'rps', 'qr.qr', 'fact', 'owner','event','ytdl','chat_info','translate'
 ]))
 
       
